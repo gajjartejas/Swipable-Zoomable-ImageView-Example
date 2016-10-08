@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LzX-86-DsA">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="tAf-xi-lt0">
+            <objects>
+                <navigationController id="LzX-86-DsA" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="dw5-io-3dd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fLK-AU-UTt" kind="relationship" relationship="rootViewController" id="97I-tw-eX4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WqL-SR-6m9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1632" y="237"/>
+        </scene>
+        <!--Swipable-Zoomable ImageView-->
+        <scene sceneID="Kqv-6C-jWq">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" title="Swipable-Zoomable ImageView" automaticallyAdjustsScrollViewInsets="NO" id="fLK-AU-UTt" customClass="HomeViewController" customModule="Swipable_Zoomable_ImageView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6h2-0n-vdr"/>
+                        <viewControllerLayoutGuide type="bottom" id="8sl-EK-2rm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6eJ-rq-29U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="odZ-Ft-AYJ">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="Gpv-y0-xFi" style="IBUITableViewCellStyleDefault" id="vW0-5b-AuX">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vW0-5b-AuX" id="lMY-Wf-lfB">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gpv-y0-xFi">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="odZ-Ft-AYJ" firstAttribute="top" secondItem="6h2-0n-vdr" secondAttribute="bottom" id="1EH-bX-t0j"/>
+                            <constraint firstItem="odZ-Ft-AYJ" firstAttribute="leading" secondItem="6eJ-rq-29U" secondAttribute="leading" id="8l9-mV-F0q"/>
+                            <constraint firstAttribute="trailing" secondItem="odZ-Ft-AYJ" secondAttribute="trailing" id="cyv-Qy-EnA"/>
+                            <constraint firstItem="8sl-EK-2rm" firstAttribute="top" secondItem="odZ-Ft-AYJ" secondAttribute="bottom" id="wOH-g6-V4z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Swipable-Zoomable ImageView" id="yFL-Ok-Iyr"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="odZ-Ft-AYJ" id="ljF-7X-hJi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HPc-vY-xGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1232" y="237"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="kDa-ST-awh">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewController" id="cyj-j2-BcE" customClass="ImageViewController" customModule="Swipable_Zoomable_ImageView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IIx-Wx-Y6i"/>
+                        <viewControllerLayoutGuide type="bottom" id="bev-8T-hnN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dXC-bR-7mx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1QJ-ZN-RAO">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="UoX-Sh-wED" kind="embed" id="Ufj-fj-bfC"/>
+                                </connections>
+                            </containerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" defersCurrentPageDisplay="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="rdA-fF-CSH">
+                                <rect key="frame" x="141" y="523" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.995868980884552" green="0.99620765447616577" blue="0.99174529314041138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="0.22054073226148907" blue="0.27316827238270847" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuD-gd-cm5">
+                                <rect key="frame" x="266" y="28" width="46" height="34"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" red="0.995868980884552" green="0.99620765447616577" blue="0.99174529314041138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapNextButton:" destination="cyj-j2-BcE" eventType="touchUpInside" id="pCT-7I-vR1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1QJ-ZN-RAO" firstAttribute="leading" secondItem="dXC-bR-7mx" secondAttribute="leading" id="S4B-so-tsc"/>
+                            <constraint firstItem="bev-8T-hnN" firstAttribute="top" secondItem="rdA-fF-CSH" secondAttribute="bottom" constant="8" id="TmJ-aT-pdK"/>
+                            <constraint firstAttribute="trailing" secondItem="HuD-gd-cm5" secondAttribute="trailing" constant="8" id="UEY-5z-i03"/>
+                            <constraint firstAttribute="trailing" secondItem="1QJ-ZN-RAO" secondAttribute="trailing" id="Vyi-7T-S1d"/>
+                            <constraint firstItem="HuD-gd-cm5" firstAttribute="top" secondItem="IIx-Wx-Y6i" secondAttribute="bottom" constant="8" id="fCC-eg-V0C"/>
+                            <constraint firstItem="bev-8T-hnN" firstAttribute="top" secondItem="1QJ-ZN-RAO" secondAttribute="bottom" id="h65-og-6pZ"/>
+                            <constraint firstItem="rdA-fF-CSH" firstAttribute="centerX" secondItem="dXC-bR-7mx" secondAttribute="centerX" priority="250" id="hQk-T5-fM4"/>
+                            <constraint firstItem="1QJ-ZN-RAO" firstAttribute="top" secondItem="IIx-Wx-Y6i" secondAttribute="bottom" id="hn7-GJ-uSN"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="containerView" destination="1QJ-ZN-RAO" id="u0r-eh-uRo"/>
+                        <outlet property="pageControl" destination="rdA-fF-CSH" id="86J-sM-Zc4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kH5-8U-7Or" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-873" y="237"/>
+        </scene>
+        <!--Image Page View Controller-->
+        <scene sceneID="lKT-Qs-Yao">
+            <objects>
+                <pageViewController storyboardIdentifier="ImagePageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="UoX-Sh-wED" customClass="ImagePageViewController" customModule="Swipable_Zoomable_ImageView" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EAa-V0-X1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-495" y="237"/>
+        </scene>
+        <!--Image Content View Controller-->
+        <scene sceneID="DSz-K2-HJV">
+            <objects>
+                <viewController storyboardIdentifier="ImageContentViewController" automaticallyAdjustsScrollViewInsets="NO" id="tV6-iw-0hi" customClass="ImageContentViewController" customModule="Swipable_Zoomable_ImageView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Pa-xm-FXq"/>
+                        <viewControllerLayoutGuide type="bottom" id="tsL-LO-TBm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hoo-wU-nNi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNf-xV-DOl" customClass="ImageScrollView" customModule="Swipable_Zoomable_ImageView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XNf-xV-DOl" firstAttribute="top" secondItem="0Pa-xm-FXq" secondAttribute="bottom" id="gej-Ga-49R"/>
+                            <constraint firstItem="tsL-LO-TBm" firstAttribute="top" secondItem="XNf-xV-DOl" secondAttribute="bottom" id="k6t-dZ-8x1"/>
+                            <constraint firstItem="XNf-xV-DOl" firstAttribute="leading" secondItem="Hoo-wU-nNi" secondAttribute="leading" id="sAD-8S-1b4"/>
+                            <constraint firstAttribute="trailing" secondItem="XNf-xV-DOl" secondAttribute="trailing" id="ysH-oL-G4R"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="imageScrollView" destination="XNf-xV-DOl" id="F2q-eu-Y1a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2pZ-Jb-90a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-125" y="237"/>
+        </scene>
+    </scenes>
+</document>
