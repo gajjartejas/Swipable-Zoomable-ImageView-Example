@@ -64,13 +64,14 @@ func scrollToViewController(index newIndex: Int)
 func scrollToNextViewController() 
 ```
 ## Possible features/TODO
-
+- Landscape orientation support
 - Remote Image Integration
+- swift 3.0 support
 - ~~Show image at index~~
 - ~~Possible Delegates~~
-- Documentations inside code 
+- Documentations inside code
 - List of contents inside readme
-- swift 3.0 support
+
 
 ## Sources/Tutorial used
 
