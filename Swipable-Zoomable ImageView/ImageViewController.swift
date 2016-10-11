@@ -10,14 +10,16 @@ import UIKit
 
 class ImageViewController: UIViewController {
 
+    weak var imageViewControllerDelegate : ImageViewControllerDelegate?
+    
     var images = [AnyObject]()
     
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var containerView: UIView!
     
-    var tutorialPageViewController: ImagePageViewController? {
+    var imagePageViewController: ImagePageViewController? {
         didSet {
-            tutorialPageViewController?.tutorialDelegate = self
+            imagePageViewController?.imagePageViewControllerDelegate = self
         }
     }
     
@@ -29,13 +31,13 @@ class ImageViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if let tutorialPageViewController = segue.destinationViewController as? ImagePageViewController {
+        if let imagePageViewController = segue.destinationViewController as? ImagePageViewController {
             
-            self.tutorialPageViewController = tutorialPageViewController
+            self.imagePageViewController = imagePageViewController
             
             for i in 0...images.count-1 {
                 
-                self.tutorialPageViewController?.imageViewControllers.append(newImageViewController(images[i] as! String,index: i))
+                self.imagePageViewController?.imageViewControllers.append(newImageViewController(images[i] as! String,index: i))
                 
             }
         }
@@ -57,14 +59,14 @@ class ImageViewController: UIViewController {
     }
     
     @IBAction func didTapNextButton(sender: UIButton) {
-        tutorialPageViewController?.scrollToNextViewController()
+        imagePageViewController?.scrollToNextViewController()
     }
     
     /**
      Fired when the user taps on the pageControl to change its current page.
      */
     func didChangePageControlValue() {
-        tutorialPageViewController?.scrollToViewController(index: pageControl.currentPage)
+        imagePageViewController?.scrollToViewController(index: pageControl.currentPage)
     }
     
     private func newImageViewController(url: String,index:NSInteger) -> UIViewController {
@@ -81,15 +83,41 @@ class ImageViewController: UIViewController {
 
 extension ImageViewController: ImagePageViewControllerDelegate {
     
-    func tutorialPageViewController(tutorialPageViewController: ImagePageViewController,
-                                    didUpdatePageCount count: Int) {
+    func imagePageViewController(imagePageViewController: ImagePageViewController,
+                                 didUpdatePageCount count: Int) {
         pageControl.numberOfPages = count
+        self.imageViewControllerDelegate?.imageViewController(self, imagePageViewController: imagePageViewController, didUpdatePageCount: count)
         
     }
     
-    func tutorialPageViewController(tutorialPageViewController: ImagePageViewController,
-                                    didUpdatePageIndex index: Int) {
+    func imagePageViewController(imagePageViewController: ImagePageViewController,
+                                 didUpdatePageIndex index: Int) {
         pageControl.currentPage = index
+         self.imageViewControllerDelegate?.imageViewController(self, imagePageViewController: imagePageViewController, didUpdatePageIndex: index)
     }
+}
+
+protocol ImageViewControllerDelegate : class {
+    /**
+     Called when the number of pages is updated.
+     
+     - parameter imageViewController: the ImageViewController instance
+     - parameter imagePageViewController: the ImagePageViewController instance
+     - parameter count: the total number of pages.
+     */
+    func imageViewController(imageViewController: ImageViewController,
+                             imagePageViewController: ImagePageViewController,
+                                 didUpdatePageCount count: Int)
+    
+    /**
+     Called when the current index is updated.
+
+     - parameter imageViewController: the ImageViewController instance
+     - parameter imagePageViewController: the ImagePageViewController instance
+     - parameter index: the index of the currently visible page.
+     */
+    func imageViewController(imageViewController: ImageViewController,
+                             imagePageViewController: ImagePageViewController,
+                                 didUpdatePageIndex index: Int)
     
 }

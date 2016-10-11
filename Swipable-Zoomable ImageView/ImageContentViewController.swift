@@ -20,7 +20,6 @@ class ImageContentViewController: UIViewController {
         dispatch_async(dispatch_get_main_queue()) { 
             self.imageScrollView.displayImage(UIImage.init(named: self.image as String)!)
         }
-        
     }
     
     override func viewDidLoad() {

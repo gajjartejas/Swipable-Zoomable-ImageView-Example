@@ -58,15 +58,33 @@ extension HomeViewController : UITableViewDelegate{
         
         let vc = UIStoryboard(name: "SZImageView", bundle: nil).instantiateViewControllerWithIdentifier("ImageViewController") as! ImageViewController
         
+        vc.imageViewControllerDelegate = self
+        
         //pass image name here
         if indexPath.row == 0 {
-            images = ["1"]
+            images = ["IMG_1"]
         } else if (indexPath.row == 1) {
-            images = ["1","2","3","1","2"]
+            images = ["IMG_1","IMG_2","IMG_3"]
         }
         
         vc.images = images as! [String]
         
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension HomeViewController : ImageViewControllerDelegate {
+    func imageViewController(imageViewController: ImageViewController,
+                             imagePageViewController: ImagePageViewController,
+                             didUpdatePageCount count: Int){
+        
+        print("count : \(count)")
+        
+    }
+    
+    func imageViewController(imageViewController: ImageViewController,
+                             imagePageViewController: ImagePageViewController,
+                             didUpdatePageIndex index: Int){
+        print("index : \(index)")
     }
 }

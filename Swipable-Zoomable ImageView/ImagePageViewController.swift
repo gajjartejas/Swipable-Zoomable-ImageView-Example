@@ -10,7 +10,7 @@ import UIKit
 
 class ImagePageViewController: UIPageViewController {
     
-    weak var tutorialDelegate: ImagePageViewControllerDelegate?
+    weak var imagePageViewControllerDelegate: ImagePageViewControllerDelegate?
     
     var imageViewControllers: [UIViewController] = []
     
@@ -24,7 +24,7 @@ class ImagePageViewController: UIPageViewController {
             scrollToViewController(initialViewController)
         }
         
-        tutorialDelegate?.tutorialPageViewController(self,
+        imagePageViewControllerDelegate?.imagePageViewController(self,
                                                      didUpdatePageCount: imageViewControllers.count)
     }
     
@@ -67,18 +67,18 @@ class ImagePageViewController: UIPageViewController {
                            completion: { (finished) -> Void in
                             // Setting the view controller programmatically does not fire
                             // any delegate methods, so we have to manually notify the
-                            // 'tutorialDelegate' of the new index.
-                            self.notifyTutorialDelegateOfNewIndex()
+                            // 'imagePageViewControllerDelegate' of the new index.
+                            self.notifyImagePageViewControllerDelegateOfNewIndex()
         })
     }
     
     /**
-     Notifies '_tutorialDelegate' that the current page index was updated.
+     Notifies 'imagePageViewControllerDelegate' that the current page index was updated.
      */
-    private func notifyTutorialDelegateOfNewIndex() {
+    private func notifyImagePageViewControllerDelegateOfNewIndex() {
         if let firstViewController = viewControllers?.first,
             let index = imageViewControllers.indexOf(firstViewController) {
-            tutorialDelegate?.tutorialPageViewController(self,
+            imagePageViewControllerDelegate?.imagePageViewController(self,
                                                          didUpdatePageIndex: index)
         }
     }
@@ -140,7 +140,7 @@ extension ImagePageViewController: UIPageViewControllerDelegate {
                             didFinishAnimating finished: Bool,
                                                previousViewControllers: [UIViewController],
                                                transitionCompleted completed: Bool) {
-        notifyTutorialDelegateOfNewIndex()
+        notifyImagePageViewControllerDelegateOfNewIndex()
     }
     
 }
@@ -150,19 +150,19 @@ protocol ImagePageViewControllerDelegate: class {
     /**
      Called when the number of pages is updated.
      
-     - parameter tutorialPageViewController: the TutorialPageViewController instance
+     - parameter imagePageViewController: the ImagePageViewController instance
      - parameter count: the total number of pages.
      */
-    func tutorialPageViewController(tutorialPageViewController: ImagePageViewController,
+    func imagePageViewController(imagePageViewController: ImagePageViewController,
                                     didUpdatePageCount count: Int)
     
     /**
      Called when the current index is updated.
      
-     - parameter tutorialPageViewController: the TutorialPageViewController instance
+     - parameter imagePageViewController: the ImagePageViewController instance
      - parameter index: the index of the currently visible page.
      */
-    func tutorialPageViewController(tutorialPageViewController: ImagePageViewController,
+    func imagePageViewController(imagePageViewController: ImagePageViewController,
                                     didUpdatePageIndex index: Int)
     
 }
