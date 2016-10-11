@@ -1,7 +1,7 @@
 ## Swipable-Zoomable-ImageView-Example
 An example of swipable and pinch to zoom or double tap to zoom using UIScrollview and UIPageviewController
 
-## How to use?
+## Usage
 Copy following files to your existing project:
 
 1. SZImageView.storyboard
@@ -11,7 +11,6 @@ Copy following files to your existing project:
 5. ImagePageViewController.swift
 
 add following code to your viewcontroller
-
 
 ``` swift
 @IBAction func sdfsdh(sender: AnyObject) {
@@ -27,14 +26,48 @@ add following code to your viewcontroller
   }
 }
 ```
+## ImageViewController
 
+### Properties
+``` swift
+//An array contain images
+var images = [AnyObject]()
 
+//UIPageControl displayed in botton
+@IBOutlet weak var pageControl: UIPageControl!
 
+//ContainerView of UIPageController
+@IBOutlet weak var containerView: UIView!
+```
+### Delegates
+``` swift
+//ImageViewControllerDelegate
+//Called when the number of pages is updated.
+func imageViewController(imageViewController: ImageViewController,
+                             imagePageViewController: ImagePageViewController,
+                                 didUpdatePageCount count: Int)
+
+//Called when the current index is updated.
+func imageViewController(imageViewController: ImageViewController,
+                             imagePageViewController: ImagePageViewController,
+                                 didUpdatePageIndex index: Int)
+```
+
+## ImagePageViewController
+### Actions
+**NOTE: To access this action use the imageViewController.imagePageViewController properties**
+``` swift
+// Scrolls to the view controller at the given index. Automatically calculates the direction.
+func scrollToViewController(index newIndex: Int)
+
+//Scrolls to the next view controller.
+func scrollToNextViewController() 
+```
 ## Possible features/TODO
 
 - Remote Image Integration
-- Show image at index
-- Possible Delegates
+- ~~Show image at index~~
+- ~~Possible Delegates~~
 - Documentations inside code 
 - List of contents inside readme
 - swift 3.0 support
