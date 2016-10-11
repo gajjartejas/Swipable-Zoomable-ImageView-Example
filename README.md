@@ -13,19 +13,22 @@ Copy following files to your existing project:
 add following code to your viewcontroller
 
 
-    @IBAction func sdfsdh(sender: AnyObject) {
+``` swift
+@IBAction func sdfsdh(sender: AnyObject) {
 
-        let imageViewController = UIStoryboard(name: "SZImageView", bundle: nil).instantiateViewControllerWithIdentifier("ImageViewController") as! ImageViewController
-        
-		//Add your local images
-        imageViewController.images = ["image1","image2"]
-        
-        let navigationController = UINavigationController.init(rootViewController: imageViewController)
-        
-        self.presentViewController(navigationController, animated: true) {
-            
-        }
-    }
+  let imageViewController = UIStoryboard(name:"SZImageView",bundle:nil).instantiateViewControllerWithIdentifier("ImageViewController") as! ImageViewController
+  
+  //Add your local images
+  imageViewController.images = ["image1","image2"]
+  
+  let navigationController = UINavigationController.init(rootViewController: imageViewController)
+  
+  self.presentViewController(navigationController, animated: true) {
+  }
+}
+```
+
+
 
 ## Possible features/TODO
 
