@@ -13,7 +13,7 @@ Copy following files to your existing project:
 add following code to your viewcontroller
 
 ``` swift
-@IBAction func sdfsdh(sender: AnyObject) {
+@IBAction func showImagesAction(sender: AnyObject) {
 
   let imageViewController = UIStoryboard(name:"SZImageView",bundle:nil).instantiateViewControllerWithIdentifier("ImageViewController") as! ImageViewController
   
