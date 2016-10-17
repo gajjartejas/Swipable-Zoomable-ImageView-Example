@@ -1,5 +1,5 @@
-## Swipable-Zoomable-ImageView-Example
-An example of swipable and pinch to zoom or double tap to zoom using UIScrollview and UIPageviewController
+## Swipeable-Zoomable-ImageView-Example
+An example of Swipeable and pinch to zoom or double tap to zoom using UIScrollview and UIPageviewController
 
 ## Usage
 Copy following files to your existing project:
